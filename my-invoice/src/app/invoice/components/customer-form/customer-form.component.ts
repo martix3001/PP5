@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Supplier } from '../../models/supplier';
-import { CommonModule } from '@angular/common';
+import { Customer } from '../../models/customer';
 
 @Component({
   selector: 'app-customer-form',
@@ -10,6 +10,12 @@ import { CommonModule } from '@angular/common';
 })
 export class CustomerFormComponent {
 
-  testVaiable:Supplier=new Supplier('sasas')
+  customer: Customer = new Customer();
+
+  saveData(){
+    console.log(this.customer)
+  }
+
+  //testVaiable:Supplier=new Supplier('sasas')
 
 }
