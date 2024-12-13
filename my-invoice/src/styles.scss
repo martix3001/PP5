@@ -1,10 +1,8 @@
- //podmiana podstawowych zmiennych
+//podmiana podstawowych zmiennych
 $body-color:white;
 $body-bg:black;
 $input-color: rgb(0, 0, 0);
 $input-bg: purple;
-//import do kompilacji - 
-@import './node_modules/bootstrap/scss/bootstrap'
-//możemy też tworzyć dziedziczenie bo kaskadowy css 
-/* npx sass style.scss style.css */ 
-//komenda do komilacji
+/* npx sass style.scss style.css */
+
+@import '../node_modules/bootstrap/scss/bootstrap.scss'

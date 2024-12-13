@@ -4,16 +4,17 @@ import { CustomerFormComponent } from './components/customer-form/customer-form.
 import { CustomerListComponent } from './components/customer-list/customer-list.component';
 import { InvoiceRoutingModule } from './invoice-routing.module';
 import { FormsModule } from '@angular/forms';
+import { CustomerListElementComponent } from './components/customer-list-element/customer-list-element.component';
 
 
 
 @NgModule({
-  declarations: [CustomerFormComponent,CustomerListComponent],
+  declarations: [CustomerFormComponent,CustomerListComponent, CustomerListElementComponent],
   imports: [
     CommonModule,
     InvoiceRoutingModule,
     FormsModule
     ],
-  exports:[CustomerFormComponent]
+  exports:[CustomerFormComponent,CustomerListComponent]
 })
 export class InvoiceModule { }

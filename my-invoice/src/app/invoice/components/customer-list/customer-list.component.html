@@ -1,1 +1,7 @@
-<p>customer-list works!</p>
+
+<app-customer-list-element
+*ngFor="let customer of customerList"
+[customer]="customer">
+</app-customer-list-element>
+
+<button class="btn btn-success" (click)="redirectToForm()">Powrót do form</button>
