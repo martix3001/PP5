@@ -8,7 +8,14 @@ import { Customer } from '../../models/customer';
   styleUrl: './customer-list-element.component.scss'
 })
 export class CustomerListElementComponent {
+
   @Input()
   customer: Customer=new Customer();
+
+
+
+  deleteCustomer() {
+    console.log("usunieto klienta",this.customer.nip);
+    }
 
 }

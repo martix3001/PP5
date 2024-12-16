@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Supplier } from '../../models/supplier';
 import { Customer } from '../../models/customer';
+import { CustomerService } from '../../services/customer.service';
 
 @Component({
   selector: 'app-customer-form',
@@ -14,6 +15,9 @@ export class CustomerFormComponent {
 
   saveData(){
     console.log(this.customer)
+    let test = new CustomerService()
+    test.addCustomer
+    this.customerService.addCustomer(this.customer)
   }
 
   //testVaiable:Supplier=new Supplier('sasas')

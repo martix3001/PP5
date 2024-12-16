@@ -3,14 +3,6 @@ $body-color:white;
 $body-bg:black;
 $input-color: rgb(0, 0, 0);
 $input-bg: purple;
-<<<<<<< HEAD
 /* npx sass style.scss style.css */
 
 @import '../node_modules/bootstrap/scss/bootstrap.scss'
-=======
-//import do kompilacji - 
-@import './node_modules/bootstrap/scss/bootstrap'
-//możemy też tworzyć dziedziczenie bo kaskadowy css 
-/* npx sass style.scss style.css */ 
-//komenda do komilacji
->>>>>>> 65a456f3f1cf65835425f6a93d6af50b8c2c15d6
