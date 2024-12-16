@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
+<<<<<<< HEAD
 import { CustomerService } from '../../services/customer.service';
 import { Router } from '@angular/router';
 import { Customer } from "../../models/customer"
+=======
+>>>>>>> 65a456f3f1cf65835425f6a93d6af50b8c2c15d6
 
 @Component({
   selector: 'app-customer-list',
@@ -11,6 +14,7 @@ import { Customer } from "../../models/customer"
 })
 export class CustomerListComponent {
 
+<<<<<<< HEAD
   customerList: Customer[];
 
   constructor(
@@ -26,3 +30,6 @@ export class CustomerListComponent {
   }
 
 }
+=======
+}
+>>>>>>> 65a456f3f1cf65835425f6a93d6af50b8c2c15d6
