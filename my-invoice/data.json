@@ -1,0 +1,45 @@
+{
+  "customers": [
+    {
+      "id": "af2b",
+      "name": "1234",
+      "nip": "",
+      "miasto": "",
+      "ulica": "",
+      "number": "",
+      "numberM": "",
+      "kod": "",
+      "uwagi": "",
+      "branza": "",
+      "check": true,
+      "invoices": [
+        {
+          "name": "1",
+          "quantity": 5,
+          "unit": "kg",
+          "netto": 10,
+          "tax": {
+            "rate": 23,
+            "description": "23% VAT"
+          },
+          "brutto": 12.3
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

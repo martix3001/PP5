@@ -1,4 +1,7 @@
+import { Invoice } from "./invoice";
+
 export class Customer{
+    id: string | undefined;
     constructor(){}
 
     name="";
@@ -11,6 +14,7 @@ export class Customer{
     uwagi=""
     branza="";
     check=true;
+    invoices: Invoice[] = [];
 
     getAddress(){
         return this.kod+" "+this.miasto+" ul."+this.ulica+" nr."+this.number+" nr.mieszkania "+this.numberM
@@ -19,6 +23,10 @@ export class Customer{
         return `${this.name} (${this.nip})`;
     }
 
+    deserialize(input: any){
+        Object.assign(this,input);
+        return this;
+    }
     
 
 }

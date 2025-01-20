@@ -1,2 +1,6 @@
+<div>
 <li class="list-group-item">{{customer.getCustomerInfo()}}</li>
-<li><button (click)="deleteCustomer()">Delete</button></li>
+<button class="btn btn-danger" (click)="deleteCustomer()">Delete</button>
+<button class="btn btn-success" [routerLink]="['/invoice/invoice-form', customer.id]">Dodaj Fakturę</button>
+<p></p>
+</div>

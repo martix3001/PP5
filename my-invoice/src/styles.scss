@@ -1,8 +1,8 @@
 //podmiana podstawowych zmiennych
 $body-color:white;
 $body-bg:black;
-$input-color: rgb(0, 0, 0);
-$input-bg: purple;
+$input-color: rgb(255, 255, 255);
+$input-bg: rgb(78, 61, 78);
 /* npx sass style.scss style.css */
 
 @import '../node_modules/bootstrap/scss/bootstrap.scss'

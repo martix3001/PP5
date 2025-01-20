@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CustomerService } from '../../services/customer.service';
 import { Router } from '@angular/router';
 import { Customer } from "../../models/customer"
@@ -9,20 +9,45 @@ import { Customer } from "../../models/customer"
   templateUrl: './customer-list.component.html',
   styleUrl: './customer-list.component.scss'
 })
-export class CustomerListComponent {
+export class CustomerListComponent implements OnInit, OnDestroy{
+  navigateToForm() {
+    this.router.navigate(['/invoice/customer-form']);
+  }
 
-  customerList: Customer[];
+  customerList: Customer[] = [];
 
   constructor(
     private customerService:CustomerService,
     private router:Router
   ){
-    console.log(this.customerService.getCustomer())
-    this.customerList=this.customerService.getCustomer();
+    this.loadCustomers()
+  }
+  ngOnInit(){
+    this.loadCustomers();
+  }
+  ngOnDestroy(){
+    console.log('zamykam komponent')
   }
 
-  redirectToForm(){
-    this.router.navigate(['invoice/customer-form'])
+  deletedCustomer(customer: Customer) {
+    console.log('Usuwanie klienta', customer);
+    this.customerService.deleteCustomer(customer).subscribe(
+      () => {
+        // Usuń klienta z lokalnej listy po udanym usunięciu
+        this.customerList = this.customerList.filter(c => c.id !== customer.id);
+        console.log('Klient usunięty');
+      },
+      (error) => {
+        console.error('Błąd przy usuwaniu klienta', error);
+      }
+    );
   }
 
+  loadCustomers(){
+    this.customerService.getCustomers()
+      .subscribe((data: Customer[]) =>{
+        this.customerList = data as Customer[];
+        console.log(data);
+    })
+  }
 }

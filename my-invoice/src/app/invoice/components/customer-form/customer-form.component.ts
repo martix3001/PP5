@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Supplier } from '../../models/supplier';
 import { Customer } from '../../models/customer';
 import { CustomerService } from '../../services/customer.service';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-customer-form',
@@ -10,15 +12,37 @@ import { CustomerService } from '../../services/customer.service';
   styleUrl: './customer-form.component.scss'
 })
 export class CustomerFormComponent {
+ constructor
+ (
+  private customerService: CustomerService,
+  private router: Router
+ ){}
 
-  customer: Customer = new Customer();
+ navigateToList() {
+  this.router.navigate(['/invoice/customer-list']);
+}
+ customer: Customer = new Customer();
+ 
+onSubmitForm(form: NgForm) {
+    console.log(form);
+    console.log(form.valid);
+    console.log(this.customer);
+    if(form.valid){
+      this.customerService.addCustomer(this.customer)
+      .subscribe((result: Customer) => {
+        console.log(result)
+        console.log('zapisalem')
+        this.router.navigate(['/invoice/customer-list']);
+      })
+      
+    }else{
+      console.error("Popraw formularz")
+    }
+}
 
-  saveData(){
-    console.log(this.customer)
-    let test = new CustomerService()
-    test.addCustomer
-    this.customerService.addCustomer(this.customer)
-  }
+  
+
+  
 
   //testVaiable:Supplier=new Supplier('sasas')
 

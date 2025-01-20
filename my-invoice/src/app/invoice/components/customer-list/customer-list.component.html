@@ -1,9 +1,11 @@
+<div *ngFor="let customer of customerList">
+    <app-customer-list-element 
+      [customer]="customer" 
+      (deletedCustomerEvent)="deletedCustomer($event)">
+    </app-customer-list-element>
+  </div>
+  
 
-<app-customer-list-element
-*ngFor="let customer of customerList"
-[customer]="customer">
-
-(deletedCustomerEvent)="deletedCustomer($event)"
-</app-customer-list-element>
-
-<button class="btn btn-success" (click)="redirectToForm()">Powrót do form</button>
+<div class="mt-3">
+  <button class="btn btn-primary" (click)="navigateToForm()">Powrót do formularza</button>
+</div>

@@ -1,5 +1,15 @@
-export enum Tax {
-    t23 = 0.23,
-    t8 = 0.08,
-    t5 = 0.05
-}
+export class Tax {
+    rate: number;    
+    description: string;
+  
+    constructor(rate: number, description: string) {
+      this.rate = rate;
+      this.description = description;
+    }
+  
+    // Możesz dodać funkcję do obliczania kwoty podatku
+    calculateTax(netto: number): number {
+      return (netto * this.rate) / 100;
+    }
+  }
+  
