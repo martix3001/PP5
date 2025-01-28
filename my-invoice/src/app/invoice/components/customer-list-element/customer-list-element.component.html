@@ -1,6 +1,38 @@
-<div>
-<li class="list-group-item">{{customer.getCustomerInfo()}}</li>
-<button class="btn btn-danger" (click)="deleteCustomer()">Delete</button>
-<button class="btn btn-success" [routerLink]="['/invoice/invoice-form', customer.id]">Dodaj Fakturę</button>
-<p></p>
-</div>
+<div class="card my-3 shadow-sm">
+    <div class="card-body">
+      <h5 class="card-title">{{ customer.name }}</h5>
+      <p class="card-text"><strong>NIP:</strong> {{ customer.nip }}</p>
+      <button class="btn btn-danger btn-sm me-2" (click)="deleteCustomer()">Usuń klienta</button>
+      <button class="btn btn-success btn-sm me-2" [routerLink]="['/invoice/invoice-form', customer.id]">Dodaj Fakturę</button>
+      <button class="btn btn-info btn-sm" (click)="toggleInvoices()">
+        {{ isExpanded ? 'Ukryj faktury' : 'Pokaż faktury' }}
+      </button>
+    </div>
+  
+    <div *ngIf="isExpanded" class="card-footer">
+      <h6>Faktury klienta:</h6>
+      <ul class="list-group my-2" *ngIf="customer.invoices?.length; else noInvoices">
+        <li class="list-group-item" *ngFor="let invoice of customer.invoices">
+          <div>
+            <strong>Nazwa:</strong> {{ invoice.name }}
+          </div>
+          <div>
+            <strong>Ilość:</strong> {{ invoice.quantity }}
+          </div>
+          <div>
+            <strong>Netto:</strong> {{ invoice.netto }} zł
+          </div>
+          <div>
+            <strong>VAT:</strong> {{ invoice.tax?.description }}
+          </div>
+          <div>
+            <strong>Brutto:</strong> {{ invoice.brutto }} zł
+          </div>
+        </li>
+      </ul>
+      <ng-template #noInvoices>
+        <p>Brak faktur dla tego klienta.</p>
+      </ng-template>
+    </div>
+  </div>
+  

@@ -15,6 +15,7 @@ export class CustomerListComponent implements OnInit, OnDestroy{
   }
 
   customerList: Customer[] = [];
+ 
 
   constructor(
     private customerService:CustomerService,
@@ -33,7 +34,6 @@ export class CustomerListComponent implements OnInit, OnDestroy{
     console.log('Usuwanie klienta', customer);
     this.customerService.deleteCustomer(customer).subscribe(
       () => {
-        // Usuń klienta z lokalnej listy po udanym usunięciu
         this.customerList = this.customerList.filter(c => c.id !== customer.id);
         console.log('Klient usunięty');
       },
@@ -50,4 +50,5 @@ export class CustomerListComponent implements OnInit, OnDestroy{
         console.log(data);
     })
   }
+
 }

@@ -8,13 +8,18 @@ import { Customer } from '../../models/customer';
   styleUrls: ['./customer-list-element.component.scss']
 })
 export class CustomerListElementComponent {
+  isExpanded: boolean = false;
 
-  @Input() customer: Customer = new Customer();  // Przekazanie klienta do komponentu
-  @Output() deletedCustomerEvent = new EventEmitter<Customer>();  // Zdarzenie do usunięcia klienta
+  @Input() customer: Customer = new Customer();  
+  @Output() deletedCustomerEvent = new EventEmitter<Customer>();  
 
   deleteCustomer() {
     console.log("Usunięto klienta:", this.customer.nip);
-    this.deletedCustomerEvent.emit(this.customer);  // Emitowanie zdarzenia
+    this.deletedCustomerEvent.emit(this.customer); 
+  }
+
+  toggleInvoices() {
+    this.isExpanded = !this.isExpanded; 
   }
 
 }

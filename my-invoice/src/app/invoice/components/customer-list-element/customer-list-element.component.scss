@@ -1,0 +1,36 @@
+.card {
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+    margin: 20px;
+  }
+  
+  .card-body {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .card-footer {
+    padding: 15px;
+  }
+  
+  .list-group-item {
+    border: none;
+    border-bottom: 1px solid #ffffff;
+  }
+  
+  .list-group-item:last-child {
+    border-bottom: none;
+  }
+  
+  button {
+    margin-top: 2px;
+  }
+  
+  

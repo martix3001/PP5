@@ -39,11 +39,6 @@ onSubmitForm(form: NgForm) {
       console.error("Popraw formularz")
     }
 }
-
-  
-
-  
-
   //testVaiable:Supplier=new Supplier('sasas')
 
 }

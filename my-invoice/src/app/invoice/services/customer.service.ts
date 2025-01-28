@@ -32,7 +32,7 @@ export class CustomerService {
         );
     }
     
-    deleteCustomer(customer: Customer): Observable<any> {
+  deleteCustomer(customer: Customer): Observable<any> {
       return this.httpClient.delete<any>(`${this.baseUrl}/${customer.id}`);
     }
     
@@ -53,4 +53,5 @@ export class CustomerService {
       })
     );
   }
+  
 }

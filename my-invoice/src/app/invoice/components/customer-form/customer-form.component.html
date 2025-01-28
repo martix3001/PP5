@@ -1,20 +1,18 @@
-{{customer | json}}
+<div style="margin: 15px">
+    {{customer | json}}
 <form (ngSubmit)="onSubmitForm(customerForm)" #customerForm="ngForm" >
-    <input type="hidden" id="editIndex" value=""> <!-- Pole ukryte do przechowywania indeksu edytowanego klienta -->
+    <input type="hidden" id="editIndex" value="">
     
-    <!-- Nazwa firmy -->
     <div class="col-6">
         <label for="inputName" class="form-label">Nazwa Firmy</label>
         <input type="text" class="form-control" id="inputName" name="name" #name="ngModel" [(ngModel)]="customer.name" required>
-        <!-- <div class="invalid-feedback" [hidden]="name.valid || name.untouched" class="alert alert-danger">Pole nie może być puste</div> -->
-        <!-- <div class="alert alert-danger" *ngIf="name.invalid && customerForm.submitted">Pole nie może być puste</div> -->
         <div class="alert alert-danger" [hidden]="name.untouched || name.valid">Pole nie może być puste</div>
-
     </div>
    
     <div class="col-md-6">
         <label for="inputNIP" class="form-label">NIP</label>
-        <input type="text" class="form-control" pattern="\d{10}" title="NIP musi składać się z 10 cyfr" id="inputNIP" required>
+        <input type="text" class="form-control" title="NIP musi składać się z 10 cyfr" id="inputNIP" name="nip" #nip="ngModel" [(ngModel)]="customer.nip" required />
+        <div class="alert alert-danger" [hidden]="nip.untouched || nip.valid">Pole nie może być puste</div>
     </div>
     
     <div class="col-6">
@@ -76,3 +74,4 @@
     </div>
 
 </form>
+</div>

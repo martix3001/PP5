@@ -1,9 +1,23 @@
 {
   "customers": [
     {
-      "id": "af2b",
-      "name": "1234",
-      "nip": "",
+      "id": "c1e7",
+      "name": "ZHR",
+      "nip": "676-108-71-76",
+      "miasto": "",
+      "ulica": "",
+      "number": "",
+      "numberM": "",
+      "kod": "",
+      "uwagi": "",
+      "branza": "",
+      "check": true,
+      "invoices": []
+    },
+    {
+      "id": "b079",
+      "name": "UEK",
+      "nip": "1231231234",
       "miasto": "",
       "ulica": "",
       "number": "",
@@ -14,32 +28,43 @@
       "check": true,
       "invoices": [
         {
-          "name": "1",
+          "name": "Product4",
           "quantity": 5,
-          "unit": "kg",
-          "netto": 10,
+          "unit": "szt",
+          "netto": 45,
+          "tax": {
+            "rate": 5,
+            "description": "5% VAT"
+          },
+          "brutto": 236.25
+        },
+        {
+          "name": "Product4",
+          "quantity": 7,
+          "netto": 45,
           "tax": {
             "rate": 23,
             "description": "23% VAT"
           },
-          "brutto": 12.3
+          "brutto": 387.45
+        },
+        {
+          "name": "",
+          "quantity": 0
         }
       ]
     }
   ],
   "products": [
     {
-      "id": "1",
-      "text": "a comment about post 1",
-      "postId": "1"
+      "id": "fda0",
+      "name": "Product1",
+      "price": 10
     },
     {
-      "id": "2",
-      "text": "another comment about post 1",
-      "postId": "1"
+      "id": "94bf",
+      "name": "Product4",
+      "price": 45
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

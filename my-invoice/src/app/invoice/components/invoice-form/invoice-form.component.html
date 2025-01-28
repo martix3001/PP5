@@ -1,41 +1,39 @@
 <form (ngSubmit)="onSubmitInvoice(invoiceForm)" #invoiceForm="ngForm">
-    <div class="form-group">
-      <label for="productName">Nazwa Produktu</label>
-      <input type="text" id="productName" class="form-control" name="name" [(ngModel)]="invoice.name" required />
-    </div>
-  
-    <div class="form-group">
-      <label for="quantity">Ilość</label>
-      <input type="number" id="quantity" class="form-control" name="quantity" [(ngModel)]="invoice.quantity" required />
-    </div>
-  
-    <div class="form-group">
-      <label for="unit">Jednostka</label>
-      <select id="unit" class="form-control" name="unit" [(ngModel)]="invoice.unit">
-        <option value="szt">szt</option>
-        <option value="kg">kg</option>
-        <option value="l">l</option>
-    
-      </select>
-    </div>
-  
-    <div class="form-group">
-      <label for="netto">Kwota Netto</label>
-      <input type="number" id="netto" class="form-control" name="netto" [(ngModel)]="invoice.netto" (change)="calculateBrutto()" required />
-    </div>
-  
-    <div class="form-group">
-      <label for="tax">Stawka VAT</label>
-      <select id="tax" class="form-control" name="tax" [(ngModel)]="invoice.tax" (change)="calculateBrutto()">
-        <option *ngFor="let t of taxRates" [ngValue]="t">{{ t.description }}</option>
-      </select>
-    </div>
-  
-    <div class="form-group">
-      <label for="brutto">Kwota Brutto</label>
-      <input type="number" id="brutto" class="form-control" name="brutto" [(ngModel)]="invoice.brutto" readonly />
-    </div>
-  
-    <button type="submit" class="btn btn-primary" [disabled]="invoiceForm.invalid">Zapisz Fakturę</button>
-  </form>
-  
+  <div class="form-group">
+    <label for="product">Wybierz Produkt</label>
+    <select id="product" class="form-control" (change)="onProductSelect($event)">
+      <option *ngFor="let product of products" [value]="product.id">
+        {{ product.name }} ({{ product.price }} PLN netto)
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="productName">Nazwa Produktu</label>
+    <input type="text" id="productName" class="form-control" name="name" [(ngModel)]="invoice.name" readonly />
+  </div>
+
+  <div class="form-group">
+    <label for="quantity">Ilość</label>
+    <input type="number" id="quantity" class="form-control" name="quantity" [(ngModel)]="invoice.quantity" (change)="calculateBrutto()" required />
+  </div>
+
+  <div class="form-group">
+    <label for="netto">Kwota Netto</label>
+    <input type="number" id="netto" class="form-control" name="netto" [(ngModel)]="invoice.netto" (change)="calculateBrutto()" readonly />
+  </div>
+
+  <div class="form-group">
+    <label for="tax">Stawka VAT</label>
+    <select id="tax" class="form-control" name="tax" [(ngModel)]="invoice.tax" (change)="calculateBrutto()">
+      <option *ngFor="let t of taxRates" [ngValue]="t">{{ t.description }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="brutto">Kwota Brutto</label>
+    <input type="number" id="brutto" class="form-control" name="brutto" [(ngModel)]="invoice.brutto" readonly />
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="invoiceForm.invalid">Zapisz Fakturę</button>
+</form>
